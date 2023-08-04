@@ -1,10 +1,8 @@
 # bookshop
 atguigu-bookshop
-# bookshop
-atguigu-bookshop
 先引入myssm
 
-补充，后面要用到json数据，又改了dispatcherServlet，又把myssm变回代码级别了，不过打包好的myssm是完整的能处理json数据的。
+补充，后面要用到json数据，又改了dispatcherServlet，又把myssm变回代码级别了，不过打包好的myssm是完整的能处理json数据的。项目用的是压缩前的myssm。
 
 # 1、初步设计
 
