@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans>
+    <bean id="UserDao" class="com.lqf.dao.impl.UserDaoImpl"></bean>
+    <bean id="BookDao" class="com.lqf.dao.impl.BookDaoImpl"></bean>
+    <bean id="CartDao" class="com.lqf.dao.impl.CartDaoImpl"></bean>
+    <bean id="OrderBeanDao" class="com.lqf.dao.impl.OrderBeanDaoImpl"></bean>
+    <bean id="OrderItemDao" class="com.lqf.dao.impl.OrderItemDaoImpl"></bean>
+
+    <bean id="UserService" class="com.lqf.service.impl.UserServiceImpl">
+        <property name="userDao" ref="UserDao"></property>
+        <property name="cartService" ref="CartService"></property>
+    </bean>
+    <bean id="BookService" class="com.lqf.service.impl.BookServiceImpl">
+        <property name="bookDao" ref="BookDao"></property>
+    </bean>
+    <bean id="CartService" class="com.lqf.service.impl.CartServiceImpl">
+        <property name="cartDao" ref="CartDao"></property>
+        <property name="bookService" ref="BookService"></property>
+    </bean>
+    <bean id="OrderBeanService" class="com.lqf.service.impl.OrderBeanServiceImpl">
+        <property name="orderBeanDao" ref="OrderBeanDao"></property>
+        <property name="orderItemService" ref="OrderItemService"></property>
+        <property name="cartService" ref="CartService"></property>
+    </bean>
+    <bean id="OrderItemService" class="com.lqf.service.impl.OrderItemServiceImpl">
+        <property name="orderItemDao" ref="OrderItemDao"></property>
+    </bean>
+
+    <bean id="page" class="com.lqf.controller.PageController"></bean>
+    <bean id="user" class="com.lqf.controller.UserController">
+        <property name="userService" ref="UserService"></property>
+    </bean>
+    <bean id="book" class="com.lqf.controller.BookController">
+        <property name="bookService" ref="BookService"></property>
+    </bean>
+    <bean id="cart" class="com.lqf.controller.CartController">
+        <property name="cartService" ref="CartService"></property>
+    </bean>
+    <bean id="order" class="com.lqf.controller.OrderController">
+        <property name="orderBeanService" ref="OrderBeanService"></property>
+    </bean>
+
+
+</beans>

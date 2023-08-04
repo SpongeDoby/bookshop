@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app metadata-complete="false" version="5.0" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="https://jakarta.ee/xml/ns/jakartaee">
+  <context-param>
+    <param-name>view-prefix</param-name>
+    <param-value>/WEB-INF/pages/</param-value>
+  </context-param>
+  <context-param>
+    <param-name>view-suffix</param-name>
+    <param-value>.html</param-value>
+  </context-param>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>applicationContext.xml</param-value>
+  </context-param>
+  
+  <servlet>
+    <servlet-name>KaptchaServlet</servlet-name>
+    <servlet-class>com.lqf.servlet.MyKaptchaServlet</servlet-class>
+    <init-param>
+      <param-name>kaptcha.border.color</param-name>
+      <param-value>red</param-value>
+    </init-param>
+    <init-param>
+      <param-name>kaptcha.textproducer.char.string</param-name>
+      <param-value>abcdefg</param-value>
+    </init-param>
+    <init-param>
+      <param-name>kaptcha.noise.impl</param-name>
+      <param-value>com.google.code.kaptcha.impl.NoNoise</param-value>
+    </init-param>
+    <init-param>
+      <param-name>kaptcha.image.width</param-name>
+      <param-value>120</param-value>
+    </init-param>
+    <init-param>
+      <param-name>kaptcha.image.hright</param-name>
+      <param-value>40</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>KaptchaServlet</servlet-name>
+    <url-pattern>/kaptcha.jpg</url-pattern>
+  </servlet-mapping>
+</web-app>
